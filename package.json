@@ -1,7 +1,7 @@
 {
   "name": "digging-angularjs",
   "version": "1.0.0",
-  "description": "AngularJS app served from Node Express server",
+  "description": "AngularJS app served from Node Express server and Google Firebase",
   "main": "server.js",
   "scripts": {
     "start": "DEBUG=express:* node server.js",
