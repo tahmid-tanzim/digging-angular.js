@@ -1,0 +1,19 @@
+{
+  "name": "digging-angularjs",
+  "version": "1.0.0",
+  "description": "AngularJS app served from Node Express server",
+  "main": "server.js",
+  "scripts": {
+    "start": "DEBUG=express:* node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tahmid-tanzim/digging-angularjs.git"
+  },
+  "author": "Tahmid Tanzim <tahmid.tanzim@gmail.com>",
+  "license": "GNU",
+  "dependencies": {
+    "express": "^4.4.3"
+  }
+}
