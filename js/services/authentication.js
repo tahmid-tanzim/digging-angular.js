@@ -15,7 +15,7 @@ myApp.factory('Authentication',
             }
         });
 
-        return {
+        var myObject = {
             login: function (user) {
                 auth.$authWithPassword({
                     email: user.email,
@@ -52,10 +52,13 @@ myApp.factory('Authentication',
                             created_at: Firebase.ServerValue.TIMESTAMP
                         }); // user info
 
-                    $rootScope.message = 'Welcome ' + user.firstname + '!, \nThanks for registering.';
+                    //$rootScope.message = 'Welcome ' + user.firstname + '!, \nThanks for registering.';
+                    myObject.login(user);
                 }).catch(function (error) {
                     $rootScope.message = error.message;
                 }); // createUser
             } // register
         };
+
+        return myObject;
     }]); // factory

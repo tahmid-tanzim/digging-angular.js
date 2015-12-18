@@ -5,7 +5,7 @@ var myApp = angular.module('myApp',
 myApp.run(['$rootScope', '$location', function($rootScope, $location) {
      $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
         if(error == 'AUTH_REQUIRED') {
-            $rootScope.message = 'Sorry! you must in to access that page';
+            $rootScope.message = 'Sorry! you must login to access that page';
             $location.path('/login');
         } // AUTH REQUIRED
      }); // event info
