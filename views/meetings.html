@@ -1,6 +1,22 @@
 <div class="card meetings cf">
     <div class="textintro">
         <h1>Add a Meeting</h1>
-        <p>{{message}}</p>
+        <p>Type a meeting name and Press Enter</p>
     </div>
+    <!-- textintro -->
+    <form class="formgroup addmeeting cf"
+          name="myform"
+          ng-submit="addMeeting()"
+          novalidate>
+        <div class="inputwrapper">
+            <input type="text"
+                   name="meetingname"
+                   placeholder="Meeting Name"
+                   ng-model="meetingname"
+                   ng-required="true">
+            <button type="submit"
+                    class="btn"
+                    ng-disabled="myform.$invalid">+</button>
+        </div>
+    </form>
 </div> <!-- meetings cf -->

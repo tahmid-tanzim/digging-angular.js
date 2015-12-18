@@ -224,7 +224,10 @@ input[type=radio] {
 
 .btn .btn-left { float: left; }
 .btn .btn-right { float: right; }
-.btn:hover { background-color: #DC322F; }
+.btn:focus, .btn:hover {
+    background-color: #DC322F;
+    outline: none;
+}
 
 .btn-list { background-image: url(../images/icons/icon_list.png); }
 .btn-checkin { background-color: #859835; background-image: url(../images/icons/icon_checkmark.png); }
@@ -610,11 +613,11 @@ nav li a:hover {
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
-    color: #FFFFFF;
+    color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    background-color: #777777;
+    background-color: #777;
     border-radius: 10px;
 }
 .badge:empty {
