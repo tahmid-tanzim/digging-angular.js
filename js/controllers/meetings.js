@@ -9,6 +9,20 @@ myApp.controller('MeetingsController',
                 var meetingsRef = new Firebase(FIREBASE_URL + 'users/' + $rootScope.currentUser.$id + '/meetings');
                 var meetingsInfo = $firebaseArray(meetingsRef);
 
+                $scope.meetings = meetingsInfo;
+
+                /* Loaded first time */
+                meetingsInfo.$loaded().then(function (data) {
+                    console.log("Meetings data: ");
+                    console.log(data);
+                    $rootScope.howManyMeetings = meetingsInfo.length;
+                }); // Make sure meetings data is loaded.
+
+                /* Watch for new update */
+                meetingsInfo.$watch(function (data) {
+                    $rootScope.howManyMeetings = meetingsInfo.length;
+                });
+
                 $scope.addMeeting = function () {
                     meetingsInfo.$add({
                         name: $scope.meetingname,
@@ -17,6 +31,11 @@ myApp.controller('MeetingsController',
                         $scope.meetingname = '';
                     }); // promise
                 } // AddMeetings
+
+                $scope.deleteMeeting = function (key) {
+                    meetingsInfo.$remove(key);
+                } // deleteMeeting
+
             } // User Authenticated
         }); // on Auth
 }]); // Controller
