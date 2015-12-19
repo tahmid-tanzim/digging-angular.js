@@ -22,7 +22,11 @@ myApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'RegistrationController'
         }).
         when('/checkins/:uId/:mId', {
-            templateUrl: 'views/check_in.html',
+            templateUrl: 'views/checkins.html',
+            controller: 'CheckInsController'
+        }).
+        when('/checkins/:uId/:mId/checkinslist', {
+            templateUrl: 'views/checkinslist.html',
             controller: 'CheckInsController'
         }).
         when('/meetings', {
