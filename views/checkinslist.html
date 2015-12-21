@@ -4,11 +4,26 @@
 
     <div class="search cf">
         <h2>Search Checkins</h2>
-        <input type="text" ng-model="query" placeholder="Search for users">
+        <input type="text" ng-model="filterParam.query" placeholder="Search for users">
+        <div class="formgroup">
+            <span class="label">Sort by: </span>
+            <select ng-model="filterParam.order">
+                <option value="firstname">First Name</option>
+                <option value="lastname">Last Name</option>
+                <option value="created_at">Created at</option>
+            </select>
+        </div>
+
+        <div class="formgroup">
+            <input id="dirascending" type="radio" ng-model="filterParam.direction" name="direction">
+            <label for="dirascending">Ascending</label>&nbsp;
+            <input id="dirdescending" type="radio" ng-model="filterParam.direction" name="direction" value="reverse">
+            <label for="dirdescending">Descending</label>
+        </div>
     </div>
 
     <ul class="userlist cf">
-        <li ng-repeat="checkin in checkins | filter: query">
+        <li ng-repeat="checkin in checkins | orderBy: filterParam.order:filterParam.direction | filter: filterParam.query">
             <div class="checkin">
                 <div class="buttons"
                      ng-show="currentUser">

@@ -12,6 +12,13 @@ myApp.controller('CheckInsController',
         var checkinsList = $firebaseArray(ref);
         $scope.checkins = checkinsList;
 
+        /* Initialize filter */
+        $scope.filterParam = {
+            order: 'firstname',
+            direction: null,
+            query: ''
+        };
+
         $scope.addCheckin = function () {
             var checkinsInfo = $firebaseArray(ref);
             checkinsInfo.$add({
