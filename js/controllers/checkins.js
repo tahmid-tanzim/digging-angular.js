@@ -1,5 +1,5 @@
 myApp.controller('CheckInsController',
-    ['$scope', '$rootScope', '$routeParams', '$firebaseObject', '$firebaseArray', 'FIREBASE_URL', function($scope, $rootScope, $routeParams, $firebaseObject, $firebaseArray, FIREBASE_URL) {
+    ['$scope', '$rootScope', '$routeParams', '$location', '$firebaseObject', '$firebaseArray', 'FIREBASE_URL', function($scope, $rootScope, $routeParams, $location, $firebaseObject, $firebaseArray, FIREBASE_URL) {
 
         $scope.whichMeeting = $routeParams.mId;
         $scope.whichUser = $routeParams.uId;
@@ -19,6 +19,8 @@ myApp.controller('CheckInsController',
                 lastname: $scope.user.lastname,
                 email: $scope.user.email,
                 created_at: Firebase.ServerValue.TIMESTAMP
+            }).then(function () {
+                $location.path('/checkins/' + $scope.whichUser + '/' + $scope.whichMeeting + '/checkinsList');
             });
         }; //Add Checkin
     }]); // Controller
