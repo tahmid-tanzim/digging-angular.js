@@ -62,4 +62,10 @@ myApp.controller('CheckInsController',
             });
         }; // give love
 
+        $scope.deleteLove = function (checkinId, award) {
+            var refLove = new Firebase(FIREBASE_URL + 'users/' + $scope.whichUser + '/meetings/' + $scope.whichMeeting + '/checkins/' + checkinId + '/awards');
+            var record = $firebaseObject(refLove);
+            record.$remove(award);
+        }; // Delete Love
+
     }]); // Controller
